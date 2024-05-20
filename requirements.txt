@@ -1,1 +1,9 @@
-
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+pyarrow
+fastparquet
+ipykernel
+jupiter-notebook
