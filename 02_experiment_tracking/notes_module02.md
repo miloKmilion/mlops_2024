@@ -88,6 +88,33 @@ important things to note when comparing models in MLflow
 
 To register the model, artifacts are needed. There will be the option to register and save into models. 
 
+#### 2.6 MLflow in practice
+
+##### Different scenarios for running MLflow.
+    * A single data scientist in ML competition -> In this case having a remote tracking server is an overkill. Since there is no need to track information remotely and there is no need to share with other people. 
+
+    Using the model registry is also not needed since the model will not be deployed to production.  
+
+    * A cross-functional team with one data scientist working on an ML model.
+
+    * Multiple Data Scientist working on multiple ML models -> Here sharing the model and inrformation is a must, other DS can update or tune hyperparams so manage the model registry is important to keep the ML lifecycle. 
+
+Depending on the context, MLflow needs to configured:
+
+1. Backend Store --> Here is where all the metadata is stored.
+    - Local Filesystem
+    - SQLAlchemy compatible DB (e.g., SQLite)
+
+2. Artifacts Store
+    - Local Filesystem
+    - remote (e.g., s3 Bucket)
+
+3. Tracking Server
+    - No tracking
+    - localhost
+    - Remote
+
+
 
 
 
