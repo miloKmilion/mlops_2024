@@ -115,6 +115,40 @@ Depending on the context, MLflow needs to configured:
     - Remote
 
 
+#### Scenarios:
+1. For the Scenario where 1 single data scientist wants to build a model and track it is important to:
 
+    - MlFlow Setup:
+        - Tracking Server: NO
+        - Backend Store: Local Filesystem
+        - Artifacts Store: Local Filesystem
 
+    The experiments can be explored locally by launching the MLflow UI. Bear in mind that the 
+
+2. Scenario 2: A cross-functional team with one data scientist on an ML model
+
+    - MLflow Setup:
+        - tracking server: Yes, local server
+        - Backend Store: sqlite database
+        - artifact store: local filesystem
+
+    The experiments can be explored locally by accessing the local tracking server. 
+
+    To run the example: mlflow server --backend-store-uri sqlite:///backend.db --default-artifact-root ./artifacts_local
+
+    When using this approach the artifacts are stored locally but the metadata from the model are not stored locally. To access to it we need to register the model, when registered the model version and name is added to the URL. 
+
+3. Scenario 3, multiple DS working on multiple ML models
+    - MLflow Setup:
+        - tracking server: Yes, remote server (EC2)
+        - Backend Store: postresql database
+        - artifact store: S3 Bucket.
+
+    The experiments can be eplored by accessing the remote server. 
+
+    We can use AWS to host a remote server -> mlflow_on_aws.md
+        It is necessary ot have an AWS acount and select the tier. 
+        After creating it the key pair is required. 
+
+Note: Remember to follow the bucket name instructions. 
 
