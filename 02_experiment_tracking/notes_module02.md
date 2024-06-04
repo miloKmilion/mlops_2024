@@ -152,3 +152,33 @@ Depending on the context, MLflow needs to configured:
 
 Note: Remember to follow the bucket name instructions. 
 
+## Benefits from using MLflow.
+
+#### Remote tracking server:
+The tracking server can be easily deployed on the cloud:
+    * Share experiments with other DS
+    * Collaborate with others to build and deploy models.
+    * Give more visibility of the Data Science efforts --> To inform stakeholders or PM about the status of projects or models. 
+
+## Issues:
+* Security -> acces to the server needs to be restricted (VPN)
+* Scalability -> How to scale MLflow to support data and models
+    AWS Fargate
+    Company Scale
+* Isolation: Information to be shared in between teams, what to share, what is private
+    Define standard for naming experiments, models and a set of default tags. 
+    Restrict access to artifacts (e.g., s3 buckets in AWS accounts)
+
+## Limitations:
+* Authentication and Users: the open source version of MLflow doesnt provide any sort of autentication. --> Databricks is a good alternative.
+
+* Data versioning: To ensure full reproducibility we need the correct version of the data used to build the model. MLflow doesnt provide a built-in solution. Some work arounds exist such as using hash or if the dataset is small save it as an artifact. 
+
+* Model/Data Monitoring & Alerting: This is out of the scope of MLflow and there are better tools used for it. 
+
+## Alternatives:
+- Neptune
+- Comet
+- Weights & Biases
+
+
