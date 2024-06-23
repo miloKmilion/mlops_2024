@@ -69,6 +69,15 @@ Then in the new environemnt (deactivating the previous one) intall the scikit-le
 After loaded the environment weith the versions. It is necessary to create as new py file with the pickle command to open. 
 
 
+### Batch deployment
+Offline mode. 
+
+The notebook used for training the model it becomes also a notebook for applying the model. 
+
+* Turn the notebook into a script.
+* Clean it an parametrize. 
+* After doing that the script will be scheduled using prefect. 
+*
 
 
 
